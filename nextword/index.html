@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Next Word Prediction</title>
+  <meta name="description" content="">
+  <meta name="author" content="Pattareeya">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/default.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  <link rel="stylesheet" href = "assets/css/ribbons.css">
+
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  <h2>Next Word Prediction</h2>
+  <p>by</p>
+
+<p>Pattareeya</p>
+
+<p>April 2015</p>
+
+</section>
+<section class='' data-state='' id='slide-2'>
+  <h2>Introduction</h2>
+  <p>We have designed the Shiny app to predict the next word based on the previous sentence or phrase that users have entered. The prediction algorithm was performed based on the data from a corpus called HC Corpora (<a href="http://www.corpora.heliohost.org">www.corpora.heliohost.org</a>)</p>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h2>Algorithm</h2>
+  <p>We have created one-gram, two-gram, three-gram and four-gram tables based on english-language data provided from news, blogs and twitters.</p>
+
+<ul>
+<li><p>First, the last 3 words from the input will be matched to the four-gram table and the app will return the most frequent next-word as an output if there are more than one results.</p></li>
+<li><p>Next, if there is no match, the last 2 words from the input will be match to the three-gram table and the app will return the most frequent next-word.</p></li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h2>Algorithm</h2>
+  <ul>
+<li><p>Then, if there is no match from the three-gram table, the last word from the input will be match to the two-gram table and the app will return the most frequent next-word.</p></li>
+<li><p>Lastly, if there is not match at all, the app will randomly return one of the most frequent ten words that we got from one-gram table.</p></li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-5'>
+  <h2>How to use the app</h2>
+  <p><img src="predictapp.jpg" alt="Next Word Prediction"></p>
+
+<p>Please visit the <a href="https://pattareeya.shinyapps.io/project/">Next Word Prediction app</a>.</p>
+
+</section>
+    </div>
+  </div>
+</body>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'default', 
+    transition: Reveal.getQueryHash().transition || 'default', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
